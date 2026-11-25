@@ -55,5 +55,9 @@
     previousDetails = null;
     scheduleUpdate();
   });
-  printButton.addEventListener('click', () => window.print());
+  // Embedded previews can suppress the native print dialog. The PDF link works independently.
+  if (window.self === window.top && typeof window.print === 'function') {
+    printButton.hidden = false;
+    printButton.addEventListener('click', () => window.print());
+  }
 })();

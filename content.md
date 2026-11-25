@@ -1,8 +1,8 @@
 # Engineering the AI-Ready Organization
 
-**Anton Mashkov · White paper v0.2 · 2026**
+**Anton Mashkov · White paper v0.3 · 2026**
 
-A human-centered framework for AI adoption across the software development lifecycle. Designing better processes, shared knowledge and engineering environments in which both people and AI agents can work effectively.
+AI adoption starts where a team loses time or has to redo work. The people who own that part of the process decide what AI can help with, which decisions stay in their hands, and what evidence justifies wider use.
 
 <!-- Generated from index.html. The HTML is canonical. -->
 
@@ -10,11 +10,17 @@ A human-centered framework for AI adoption across the software development lifec
 
 ## AI-ready by design.
 
-AI adoption should improve the organization's ability to deliver software, not merely its employees' ability to generate code.
+A question overlooked in design review can come back weeks later as a bug report. By then, two teams may already have built different answers into the product.
 
-Individual AI tools can significantly improve personal workflows. But personal productivity does not automatically translate into organizational effectiveness. The next step is to design a shared environment in which AI can contribute throughout the product and engineering lifecycle.
+Illustrative case
 
-> Design processes for effective AI collaboration — without making those processes dependent on AI.
+### Feature request: Let users reschedule a meeting
+
+A team is adding a rescheduling feature to its calendar app. The design shows how a user changes the meeting time. During design review, an AI assistant spots an open question: what happens to a reminder that’s already scheduled?
+
+The product owner decides that the reminder moves with the meeting. QA now has a concrete test: move a 3:00 meeting to 4:00 and check that its ten-minute reminder arrives once, at 3:50. Nothing should arrive at 2:50.
+
+> The same workflow should work for an engineer using an AI assistant and a colleague working by hand.
 
 01
 
@@ -56,9 +62,9 @@ Introduce concrete, independently valuable capabilities. Evaluate their results 
 
 **Shared engineering foundation** Knowledge · standards · skills · tools
 
-The organization deliberately adopts AI; individual execution methods remain flexible, subject to shared quality and security policies.
+Engineers choose how to do the work within the same quality and security rules.
 
-The goal is not to mandate coding agents or replace human reviewers. It is to make AI-assisted work practical, reliable and accessible while preserving the manual path whenever it is preferred or required.
+Teams keep manual development and human review available wherever people prefer them or policy requires them.
 
 02 / Organizational challenges
 
@@ -66,7 +72,7 @@ The goal is not to mandate coding agents or replace human reviewers. It is to ma
 
 Many obstacles to effective AI adoption are existing organizational problems made more visible by automation.
 
-Product intent, design, requirements, implementation and QA are often connected through conversations rather than a durable, shared description of expected behavior. Each participant reconstructs the missing pieces independently.
+When a product decision lives only in a design conversation, the developer has to piece it together from the ticket and mockup. The reviewer and QA may have to ask the same people again.
 
 #### Fragmented workflow
 
@@ -114,21 +120,13 @@ Ambiguities surface during coding, review or QA, when changes may already be exp
 
 Different agents receive different instructions, context and tools. Successful personal practices are difficult to reproduce.
 
-Illustrative engineering case
-
-#### A document merge feature
-
-A design describes the merge interface, but leaves unresolved how dynamically resolved references behave during conflicts. Frontend and backend teams can implement different interpretations. QA subsequently has no reliable basis for distinguishing a defect from intended behavior.
-
-**Intervention:**  capture user stories during design exploration, resolve behavior in the product specification, and generate manual test scenarios before implementation.
-
-More powerful AI models alone cannot determine a product decision that has never been made. A reliable system must provide both the relevant existing context and a clear mechanism for resolving uncertainty.
+An assistant can look up earlier decisions. When the team has yet to settle a question, the assistant needs a way to bring it to the product owner.
 
 03 / AI-ready SDLC
 
 ## From product intent to verified behavior.
 
-The proposed lifecycle makes intent, decisions and knowledge explicit while using AI to reduce the manual effort needed to produce them.
+Product, engineering and QA share a record of what the feature should do and why. An assistant can draft the specification and test plan as the team makes those decisions.
 
 **The feature lifecycle** FIG. 02
 
@@ -232,7 +230,7 @@ Validate the integrated feature using the manual test plan created during produc
 
 **Knowledge feedback**
 
-Promote durable knowledge from the completed feature into the shared project context.
+Record the rules and decisions that colleagues will need the next time they change this feature.
 
 **Human** Confirm important product and architectural changes.
 
@@ -263,13 +261,11 @@ FEATURE / ISSUE ID
 
 A Jira template is one possible implementation. The objective is a common description of the feature, not mandatory long-form documentation.
 
-AI-assisted product specification
+From decision to acceptance criteria
 
-#### Turning a request into a verifiable feature
+#### Reminder behavior after rescheduling
 
-For a request to add a new data field, a context-aware assistant asks how existing records behave, whether the field is editable, how it interacts with validation and inheritance, and what the user should see when it is missing.
-
-The product owner resolves business questions. The developer and agent subsequently investigate the technical consequences.
+The specification keeps the user’s chosen reminder interval. When a meeting moves, the user receives one reminder at that interval before the new start time. The old reminder is canceled.
 
 04 / Shared knowledge & context
 
@@ -277,7 +273,7 @@ The product owner resolves business questions. The developer and agent subsequen
 
 People and agents should be able to understand a product without depending on the availability of a specific developer.
 
-The shared context is not simply a vector database or a collection of automatically generated summaries. It is an organized system of authoritative sources, curated knowledge and evidence, with clear provenance and access boundaries.
+A useful answer points back to an approved specification, a recorded decision or evidence in the repository. The same access rules apply when an assistant retrieves those sources.
 
 **Shared project context** FIG. 03
 
@@ -309,7 +305,7 @@ Practical use case
 
 The assistant retrieves existing documentation, related specifications and decisions. If these are insufficient, it examines implementation and tests within its authorized scope.
 
-It returns an evidence-based answer, identifies discrepancies and explains what is not yet documented — instead of requiring the original developer to reconstruct the answer.
+It cites the sources, flags any disagreement between the specification and the code, and tells the product owner which questions are still open.
 
 ### A continuous knowledge feedback loop
 
@@ -333,9 +329,9 @@ Preserve source links, ownership, revision history, status and applicability. Ap
 
 05 / Agent enablement
 
-## Build the environment, not just the prompt.
+## The engineering environment an agent needs
 
-Engineering effort should be directed toward the infrastructure that allows agents to perform useful, repeatable and verifiable work.
+To make a change an engineer can verify, an agent needs access to the relevant code, a place to run it and feedback from the tests.
 
 WHAT
 
@@ -373,6 +369,8 @@ Centralized automated agents
 
 **Governance & evaluation** Access control · logs · budgets · quality benchmarks
 
+On one OpenAI team, a short AGENTS.md points engineers and agents to the relevant design documents. When a change breaks an architectural rule, a linter explains how to fix it. [OpenAI · Harness engineering](https://openai.com/index/harness-engineering/)
+
 ### Concrete capabilities
 
 #### Requirements assistant
@@ -395,9 +393,9 @@ Automatically reviews changes using relevant specifications, engineering standar
 
 Extracts useful project knowledge, proposes updates, detects contradictions and produces summaries.
 
-### Practices, not compulsory methodologies
+### Choosing practices for a team
 
-Specification-driven development (SDD) is one useful way of connecting human-readable specifications with agent-assisted implementation. It is a technique within this framework, not its defining principle or a mandatory workflow for every task.
+In specification-driven development (SDD), the team writes a specification that guides the agent during implementation. Teams can use this approach where the change warrants it.
 
 Agent skills, retrieval systems, MCP integrations, coding assistants and automated reviewers are implementation choices. Select and adapt them to the organization's infrastructure, policies and needs.
 
@@ -413,11 +411,11 @@ Keep enforceable policies in deterministic tooling when possible. A written inst
 
 06 / Quality & verification
 
-## Move judgment upstream. Verify continuously.
+## Where review starts
 
-The highest-value human contribution often occurs before implementation, when the organization decides what to build and how it should behave.
+Some of the most consequential review happens before anyone writes code, while the team is deciding how the feature should behave.
 
-Reviewing a finished diff is valuable, but it is an inefficient way to discover that different participants understood the feature differently. Specifications allow product and technical decisions to be reviewed earlier, while implementation review checks whether those decisions were realized correctly.
+Product and engineering review the specification while they can still change the design. Later, the reviewer reads the diff against those decisions.
 
 **Verification across the lifecycle** FIG. 05
 
@@ -455,33 +453,37 @@ Validate the expected behavior in the target environment, including exploratory 
 
 Integrate an AI reviewer with the Git platform, for example GitLab. It receives the current diff, relevant product and technical specifications, repository context, tests and engineering standards. It publishes concrete findings linked to affected code and explains the scenario, impact and evidence.
 
-A review must be tied to the exact revision. Tool failures, unavailable context and incomplete analysis should be reported as incomplete verification, not as a successful review with no findings.
+The reviewer identifies the exact revision it checked. If a tool fails, context is missing or the analysis stops early, it marks the review incomplete and explains what it could not verify.
 
-Example review findings
+#### A review finding the team can act on
 
-**Requirement mismatch:**  AC-03 requires existing records to retain their value during migration, but the implementation resets the field.
+The test checks that a reminder arrives at 3:50. It still passes if the calendar also sends the old reminder at 2:50. The AI reviewer flags the gap and asks for a test that records every notification for the meeting and checks that only the 3:50 reminder was delivered.
 
-**Coverage gap:**  conflicting document references are described in the product specification, but no corresponding test or behavior is present.
+Anthropic’s guide to evaluating agents describes how to check what actually happened in the system. [Anthropic · Demystifying evals for AI agents](https://www.anthropic.com/research/demystifying-evals-for-ai-agents)
+
+Uber evaluates its automated reviewer using developer feedback and a separate set of changes with known defects. [Uber Engineering · uReview](https://www.uber.com/us/en/blog/ureview/)
 
 ### Human review remains available
 
 AI review should not be treated as proof of correctness. Keep manual review available and require appropriate expert involvement for high-risk changes, according to organization policy. Begin in advisory mode, measure findings and omissions, and reduce redundant manual review only where the evidence supports it.
 
-> Standardize the quality of the result, not the choice of who or what performs the work.
+> The same acceptance criteria apply whether a developer writes the code by hand or uses an agent.
 
 07 / Adoption roadmap
 
-## Build incrementally. Deliver in parallel.
+## How teams phase adoption
 
-The target architecture is clear. Implementation must be adapted to the organization's existing workflows, infrastructure and constraints.
+The starting point depends on where a team encounters friction in its existing workflow.
 
-The goal of initial assessment is not to rediscover where AI can be useful. It is to understand how to integrate the proposed capabilities into the particular organization without imposing unnecessary process or technology changes.
+For a team that regularly discovers missing requirements in QA, the first pilot can focus on using an assistant to surface open questions during design review.
 
 Wave 01
 
 #### Establish the foundation
 
 Agree on core artifacts and test useful capabilities early.
+
+**EVAL** Baseline and pilot success criteria
 
 **SPEC** Common feature template
 
@@ -519,7 +521,7 @@ Improve coverage and reduce repeated human work.
 
 **SCALE** Additional products & roles
 
-Waves represent dependencies and maturity, not fixed calendar deadlines. Several independent workstreams can start simultaneously.
+Each team sets its own pace. Work can start in parallel wherever one pilot can run independently of another.
 
 ### Implementation backlog
 
@@ -629,9 +631,9 @@ Share successful workflows, support team onboarding and adapt them to other prod
 
 08 / Evaluation & improvement
 
-## Measure outcomes, not AI activity.
+## How teams judge a pilot
 
-The success of AI adoption is measured by improvements in engineering and business outcomes, not the number of generated lines of code or agent interactions.
+Generated lines of code and agent interactions tell a team how much it used a tool. To judge its value, the team tracks what changed in delivery, quality and cost.
 
 **Requirements quality** Completeness of feature descriptions, unresolved questions at development start, requirement changes discovered after implementation.
 
@@ -649,12 +651,16 @@ The success of AI adoption is measured by improvements in engineering and busine
 
 Every recurring failure should lead to a system-level improvement: a missing business rule becomes a knowledge update; a repeated defect becomes a regression test; a weak agent workflow becomes a skill or harness improvement.
 
-Compare results against a baseline and representative tasks. Use human audits for important outcomes. Scale capabilities when their benefit is demonstrated, and retain a fallback route when automation is unreliable.
+#### When does the requirements pilot justify wider use?
+
+Before the pilot, the team samples comparable features and records how often an unresolved product question first surfaces after coding starts. It also records time spent preparing specifications and on rework. The team tracks the same measures during the pilot.
+
+If late questions become less frequent and the time saved on rework outweighs the extra preparation, the team expands the pilot. If preparation takes longer and the same questions still reach QA, the team pauses the pilot and examines the missed cases with product and QA.
 
 The target state
 
-## Better processes. Accessible knowledge. Stronger engineering.
+## Who owns the result?
 
-An organization in which AI is an intentional, integrated capability — and humans retain ownership of decisions, quality and the way they work.
+The team owns the result. Its engineers can trace a product decision, check the shipped behavior and choose where an assistant helps with the next change.
 
-This white paper describes a proposed adoption framework informed by software engineering practice. Examples are illustrative; the framework does not claim measured results from a completed company-wide transformation.
+The calendar feature and the pilot are illustrative examples.

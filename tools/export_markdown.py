@@ -21,6 +21,7 @@ class MarkdownExporter(HTMLParser):
         self.pre = False
         self.skip_depth = 0
         self.bold = 0
+        self.link_href = None
 
     def add(self, text):
         self.out.append(text)
@@ -43,6 +44,9 @@ class MarkdownExporter(HTMLParser):
             return
         if tag in ('h2', 'h3', 'h4'):
             self.add('\n\n' + '#' * int(tag[1]) + ' ')
+        elif tag == 'a' and attrs.get('href'):
+            self.link_href = attrs['href']
+            self.add('[')
         elif tag == 'summary':
             self.add('\n\n#### ')
         elif tag == 'blockquote':
@@ -68,6 +72,9 @@ class MarkdownExporter(HTMLParser):
             return
         if tag == 'main':
             self.in_main = False
+        elif tag == 'a' and self.link_href:
+            self.add(f']({self.link_href})')
+            self.link_href = None
         elif tag == 'pre':
             self.pre = False
             self.add('\n```\n\n')
@@ -98,9 +105,9 @@ def main():
     exporter.feed((ROOT / 'index.html').read_text(encoding='utf-8'))
     intro = (
         '# Engineering the AI-Ready Organization\n\n'
-        '**Anton Mashkov · White paper v0.2 · 2026**\n\n'
-        'A human-centered framework for AI adoption across the software development lifecycle. '
-        'Designing better processes, shared knowledge and engineering environments in which both people and AI agents can work effectively.\n\n'
+        '**Anton Mashkov · White paper v0.3 · 2026**\n\n'
+        'AI adoption starts where a team loses time or has to redo work. '
+        'The people who own that part of the process decide what AI can help with, which decisions stay in their hands, and what evidence justifies wider use.\n\n'
         '<!-- Generated from index.html. The HTML is canonical. -->\n\n'
     )
     (ROOT / 'content.md').write_text(intro + exporter.result() + '\n', encoding='utf-8')

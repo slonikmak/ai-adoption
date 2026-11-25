@@ -1,8 +1,8 @@
 # Engineering the AI-Ready Organization
 
-**Anton Mashkov · White paper v0.2**
+**Anton Mashkov · White paper v0.3**
 
-A standalone English-language white paper on human-centered AI adoption across the software development lifecycle. This is the approved preview adapted into a static, editable website. The framework is a proposal informed by engineering practice, not a claim of completed company-wide implementation.
+A standalone English-language white paper on human-centered AI adoption across the software development lifecycle. Anton Mashkov presents his view of the AI adoption engineer’s role through an illustrative calendar feature and a bounded pilot.
 
 ## Open locally
 
@@ -47,18 +47,12 @@ All resources are local. The document uses system fonts and a fixed light color 
 
 ## Print or save as PDF
 
-Use the **Print / PDF** control at the top of the page and select **Save as PDF** in the browser's print dialog. The print stylesheet removes navigation and expands the implementation backlog. A separate prebuilt PDF is not included.
+Use **Download PDF** for the ready-to-share [PDF edition](output/pdf/ai-ready-organization.pdf). When the page is open in its own browser tab, **Print** opens the native print dialog with the full backlog expanded. To refresh the downloadable edition after a content change, print the current page to PDF with backgrounds on and browser headers and footers off, then replace the linked file.
 
-## Publish on GitHub Pages
+## GitHub Pages
 
-1. Create a new repository (for example, `ai-adoption-framework`).
-2. Copy the **contents** of this directory to the repository root; commit and push them to `main`.
-3. In the repository, open **Settings → Pages**.
-4. Under **Build and deployment**, select **Deploy from a branch**, then branch `main` and folder `/ (root)`. Save.
-5. Use the published URL shown by GitHub Pages. Relative asset paths support repository-level Pages URLs and subdirectories.
-
-No GitHub Actions workflow or external hosting service is required for this deployment method. Review the document before making the repository or site public. No existing repositories were changed.
+The [published paper](https://slonikmak.github.io/ai-adoption/) is served from the root of the `main` branch. Push updates to that branch to publish a new revision.
 
 ## Scope of this version
 
-The eight chapters, diagrams, examples, and implementation backlog preserve the reviewed English preview. The page is standalone rather than embedded in ChatGPT; small layout adjustments make it use the available browser width. The previous agentic-development presentation and a Russian translation are not bundled in this version.
+Version 0.3 follows a meeting-rescheduling feature from design review through verification and shows how a team decides whether to expand the pilot. The eight chapters and implementation backlog provide supporting detail.

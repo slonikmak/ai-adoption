@@ -14,7 +14,7 @@
 <a class="skip-link" href="#main-content">Skip to content</a>
 <header class="top">
   <a class="brand" href="#cover"><span class="logo" aria-hidden="true"><i></i><i></i><i></i><i></i></span>AI Engineering / Perspectives</a>
-  <div class="header-actions"><span class="version">White paper · v0.2</span><button class="print-button" type="button" id="print-button">Print / PDF</button></div>
+  <div class="header-actions"><span class="version">White paper · v0.3</span><button class="print-button" type="button" id="print-button" hidden>Print</button><a class="print-button" href="output/pdf/ai-ready-organization.pdf" download>Download PDF</a></div>
   <div class="progress" aria-hidden="true"><div id="paper-progress"></div></div>
 </header>
 <div class="mobile-nav"><label for="chapter-select" class="sr-only">Navigate chapters</label><select id="chapter-select"><option value="cover">Overview</option><option value="vision">01 — Vision &amp; philosophy</option><option value="challenges">02 — Organizational challenges</option><option value="lifecycle">03 — AI-ready SDLC</option><option value="knowledge">04 — Shared knowledge</option><option value="harness">05 — Agent enablement</option><option value="quality">06 — Quality &amp; verification</option><option value="roadmap">07 — Adoption roadmap</option><option value="evaluation">08 — Evaluation &amp; improvement</option></select></div>
@@ -32,13 +32,13 @@
     <a href="#roadmap"><span>07</span> Adoption roadmap</a>
     <a href="#evaluation"><span>08</span> Evaluation &amp; improvement</a>
   </nav>
-  <footer><b>Anton Mashkov</b><br>Software Engineering<br>AI Adoption &amp; Agentic Workflows<br><br>Proposed framework<br>Based on engineering practice</footer>
+  <footer><b>Anton Mashkov</b><br>Software Engineering<br>AI Adoption &amp; Agentic Workflows<br><br>An engineering perspective<br>on AI adoption</footer>
 </aside>
 <div class="reading">
 <div class="hero" id="cover"><div class="hero-inner">
-  <div class="eyebrow">An AI adoption framework</div>
+  <div class="eyebrow">An engineering perspective on AI adoption</div>
   <h1>Engineering the<br><em>AI-Ready</em><br>Organization</h1>
-  <p>A human-centered framework for AI adoption across the software development lifecycle. Designing better processes, shared knowledge and engineering environments in which both people and AI agents can work effectively.</p>
+  <p>AI adoption starts where a team loses time or has to redo work. The people who own that part of the process decide what AI can help with, which decisions stay in their hands, and what evidence justifies wider use.</p>
   <div class="meta"><b>Anton Mashkov</b><span>Engineering strategy</span><span>2026</span></div>
   <a class="primary" href="#vision">Explore the framework <span aria-hidden="true">↓</span></a>
 </div></div>
@@ -46,9 +46,14 @@
 <section id="vision" aria-labelledby="vision-heading">
 <div class="eyebrow">01 / Vision &amp; philosophy</div>
 <h2 id="vision-heading">AI-ready by design.</h2>
-<p class="lead">AI adoption should improve the organization's ability to deliver software, not merely its employees' ability to generate code.</p>
-<p>Individual AI tools can significantly improve personal workflows. But personal productivity does not automatically translate into organizational effectiveness. The next step is to design a shared environment in which AI can contribute throughout the product and engineering lifecycle.</p>
-<blockquote class="quote">Design processes for effective AI collaboration — without making those processes dependent on AI.</blockquote>
+<p class="lead">A question overlooked in design review can come back weeks later as a bug report. By then, two teams may already have built different answers into the product.</p>
+<div class="case">
+<div class="eyebrow">Illustrative case</div>
+<h3>Feature request: Let users reschedule a meeting</h3>
+<p>A team is adding a rescheduling feature to its calendar app. The design shows how a user changes the meeting time. During design review, an AI assistant spots an open question: what happens to a reminder that’s already scheduled?</p>
+<p>The product owner decides that the reminder moves with the meeting. QA now has a concrete test: move a 3:00 meeting to 4:00 and check that its ten-minute reminder arrives once, at 3:50. Nothing should arrive at 2:50.</p>
+</div>
+<blockquote class="quote">The same workflow should work for an engineer using an AI assistant and a colleague working by hand.</blockquote>
 <div class="two">
 <div class="tile"><div class="num">01</div><h4>AI-ready processes</h4><p>Explicit requirements, accessible knowledge, consistent artifacts and verifiable outcomes. Improvements that remain valuable with or without AI.</p></div>
 <div class="tile"><div class="num">02</div><h4>Human agency</h4><p>People retain ownership of decisions, accountability for results and the choice of how to perform their work.</p></div>
@@ -67,15 +72,15 @@
 <div class="node strong"><b>Same quality expectations</b>Verification · review · testing</div>
 <div class="arrow" aria-hidden="true">↕</div>
 <div class="node"><b>Shared engineering foundation</b>Knowledge · standards · skills · tools</div>
-<figcaption class="caption">The organization deliberately adopts AI; individual execution methods remain flexible, subject to shared quality and security policies.</figcaption>
+<figcaption class="caption">Engineers choose how to do the work within the same quality and security rules.</figcaption>
 </figure>
-<p>The goal is not to mandate coding agents or replace human reviewers. It is to make AI-assisted work practical, reliable and accessible while preserving the manual path whenever it is preferred or required.</p>
+<p>Teams keep manual development and human review available wherever people prefer them or policy requires them.</p>
 </section>
 <section id="challenges" aria-labelledby="challenges-heading">
 <div class="eyebrow">02 / Organizational challenges</div>
 <h2 id="challenges-heading">The hidden cost of fragmented processes.</h2>
 <p class="lead">Many obstacles to effective AI adoption are existing organizational problems made more visible by automation.</p>
-<p>Product intent, design, requirements, implementation and QA are often connected through conversations rather than a durable, shared description of expected behavior. Each participant reconstructs the missing pieces independently.</p>
+<p>When a product decision lives only in a design conversation, the developer has to piece it together from the ticket and mockup. The reviewer and QA may have to ask the same people again.</p>
 <div class="compare">
 <div><h4>Fragmented workflow</h4><div class="chain">Incomplete task / design</div><div class="tiny-arrow" aria-hidden="true">↓</div><div class="chain">Developer reconstructs intent</div><div class="tiny-arrow" aria-hidden="true">↓</div><div class="chain">Implementation</div><div class="tiny-arrow" aria-hidden="true">↓</div><div class="chain">Reviewer reconstructs context</div><div class="tiny-arrow" aria-hidden="true">↓</div><div class="chain">QA reconstructs requirements</div><div class="tiny-arrow" aria-hidden="true">↓</div><div class="chain">Knowledge remains fragmented</div></div>
 <div><h4>AI-ready workflow</h4><div class="chain">Product intent &amp; exploration</div><div class="tiny-arrow" aria-hidden="true">↓</div><div class="chain">Shared product specification</div><div class="tiny-arrow" aria-hidden="true">↓</div><div class="chain">Technical design &amp; implementation</div><div class="tiny-arrow" aria-hidden="true">↓</div><div class="chain">Verification against specification</div><div class="tiny-arrow" aria-hidden="true">↓</div><div class="chain">QA using shared test plan</div><div class="tiny-arrow" aria-hidden="true">↓</div><div class="chain">Updated project knowledge</div></div>
@@ -87,13 +92,12 @@
 <div class="tile"><h4>Late discovery</h4><p>Ambiguities surface during coding, review or QA, when changes may already be expensive to correct.</p></div>
 <div class="tile"><h4>Inconsistent AI workflows</h4><p>Different agents receive different instructions, context and tools. Successful personal practices are difficult to reproduce.</p></div>
 </div>
-<div class="case"><div class="eyebrow">Illustrative engineering case</div><h4>A document merge feature</h4><p>A design describes the merge interface, but leaves unresolved how dynamically resolved references behave during conflicts. Frontend and backend teams can implement different interpretations. QA subsequently has no reliable basis for distinguishing a defect from intended behavior.</p><p><b>Intervention:</b> capture user stories during design exploration, resolve behavior in the product specification, and generate manual test scenarios before implementation.</p></div>
-<p>More powerful AI models alone cannot determine a product decision that has never been made. A reliable system must provide both the relevant existing context and a clear mechanism for resolving uncertainty.</p>
+<p>An assistant can look up earlier decisions. When the team has yet to settle a question, the assistant needs a way to bring it to the product owner.</p>
 </section>
 <section id="lifecycle" aria-labelledby="lifecycle-heading">
 <div class="eyebrow">03 / AI-ready SDLC</div>
 <h2 id="lifecycle-heading">From product intent to verified behavior.</h2>
-<p class="lead">The proposed lifecycle makes intent, decisions and knowledge explicit while using AI to reduce the manual effort needed to produce them.</p>
+<p class="lead">Product, engineering and QA share a record of what the feature should do and why. An assistant can draft the specification and test plan as the team makes those decisions.</p>
 <figure class="diagram">
 <div class="diagram-head"><b>The feature lifecycle</b><span>FIG. 02</span></div>
 <div class="node dark"><b>Product intent</b>Business goal or feature idea</div><div class="arrow" aria-hidden="true">↓</div>
@@ -113,7 +117,7 @@
 <div class="stage"><div class="step">04</div><div><b>Implementation</b><p>Develop using the agreed product and technical context. Changes to the expected behavior are reflected in the specification, not only in code.</p><div class="roles"><div class="role human"><b>Human</b>Choose execution method and take responsibility for the result.</div><div class="role"><b>AI</b>Optionally implement, test, debug and investigate the system.</div></div><div class="artifact"><strong>Output:</strong> code, tests and relevant verification evidence.</div></div></div>
 <div class="stage"><div class="step">05</div><div><b>Verification &amp; code review</b><p>Evaluate implementation quality and conformance to agreed requirements. Use centralized AI review, automated checks and human review according to risk and team policy.</p><div class="roles"><div class="role human"><b>Human</b>Resolve findings, provide judgment and review where appropriate.</div><div class="role"><b>AI</b>Identify defects, missing requirements, test gaps and architecture violations.</div></div><div class="artifact"><strong>Output:</strong> review findings and verification results for the current revision.</div></div></div>
 <div class="stage"><div class="step">06</div><div><b>QA &amp; delivery</b><p>Validate the integrated feature using the manual test plan created during product specification. Record deviations and update requirements when necessary.</p><div class="roles"><div class="role human"><b>Human</b>Perform exploratory and manual testing; assess the result.</div><div class="role"><b>AI</b>Maintain test scenarios, investigate failures and suggest regression coverage.</div></div><div class="artifact"><strong>Output:</strong> test results, defects and accepted behavior.</div></div></div>
-<div class="stage"><div class="step">07</div><div><b>Knowledge feedback</b><p>Promote durable knowledge from the completed feature into the shared project context.</p><div class="roles"><div class="role human"><b>Human</b>Confirm important product and architectural changes.</div><div class="role"><b>AI</b>Extract decisions, propose documentation updates and generate digests.</div></div><div class="artifact"><strong>Output:</strong> updated, traceable project knowledge.</div></div></div>
+<div class="stage"><div class="step">07</div><div><b>Knowledge feedback</b><p>Record the rules and decisions that colleagues will need the next time they change this feature.</p><div class="roles"><div class="role human"><b>Human</b>Confirm important product and architectural changes.</div><div class="role"><b>AI</b>Extract decisions, propose documentation updates and generate digests.</div></div><div class="artifact"><strong>Output:</strong> updated, traceable project knowledge.</div></div></div>
 <h3>Specification as a shared contract</h3>
 <p>A product specification provides one shared description of behavior for product owners, designers, frontend and backend engineers, reviewers and QA. Technical specifications explain how that behavior will be implemented in the existing system.</p>
 <p>For a cross-component feature, frontend and backend subtasks should refer to the same product specification. Small changes require lightweight descriptions; complex changes justify deeper analysis.</p>
@@ -127,13 +131,13 @@
 06  Dependencies and unresolved questions
 07  Manual test plan
 08  Related decisions &amp; technical specification</pre><p class="note">A Jira template is one possible implementation. The objective is a common description of the feature, not mandatory long-form documentation.</p></div></details>
-<div class="case"><div class="eyebrow">AI-assisted product specification</div><h4>Turning a request into a verifiable feature</h4><p>For a request to add a new data field, a context-aware assistant asks how existing records behave, whether the field is editable, how it interacts with validation and inheritance, and what the user should see when it is missing.</p><p>The product owner resolves business questions. The developer and agent subsequently investigate the technical consequences.</p></div>
+<div class="case"><div class="eyebrow">From decision to acceptance criteria</div><h4>Reminder behavior after rescheduling</h4><p>The specification keeps the user’s chosen reminder interval. When a meeting moves, the user receives one reminder at that interval before the new start time. The old reminder is canceled.</p></div>
 </section>
 <section id="knowledge" aria-labelledby="knowledge-heading">
 <div class="eyebrow">04 / Shared knowledge &amp; context</div>
 <h2 id="knowledge-heading">Make organizational knowledge accessible.</h2>
 <p class="lead">People and agents should be able to understand a product without depending on the availability of a specific developer.</p>
-<p>The shared context is not simply a vector database or a collection of automatically generated summaries. It is an organized system of authoritative sources, curated knowledge and evidence, with clear provenance and access boundaries.</p>
+<p>A useful answer points back to an approved specification, a recorded decision or evidence in the repository. The same access rules apply when an assistant retrieves those sources.</p>
 <figure class="diagram">
 <div class="diagram-head"><b>Shared project context</b><span>FIG. 03</span></div>
 <div class="layer"><b>Knowledge</b><span>Business rules, invariants, architecture, data model, user and technical documentation.</span></div>
@@ -147,7 +151,7 @@
 <h3>Start with the sources that already exist</h3>
 <p>Connect issue trackers, repositories, user documentation and existing technical notes. Establish basic project maps and an interface for contextual questions. There is no need to document every line of legacy code before providing value.</p>
 <p>Repository analysis is particularly useful when technical documentation is incomplete. However, observed code behavior must remain distinct from approved product requirements and deployed behavior. The system should indicate the relevant branch, version or release.</p>
-<div class="case"><div class="eyebrow">Practical use case</div><h4>Product owner asks: “How does this feature actually work?”</h4><p>The assistant retrieves existing documentation, related specifications and decisions. If these are insufficient, it examines implementation and tests within its authorized scope.</p><p>It returns an evidence-based answer, identifies discrepancies and explains what is not yet documented — instead of requiring the original developer to reconstruct the answer.</p></div>
+<div class="case"><div class="eyebrow">Practical use case</div><h4>Product owner asks: “How does this feature actually work?”</h4><p>The assistant retrieves existing documentation, related specifications and decisions. If these are insufficient, it examines implementation and tests within its authorized scope.</p><p>It cites the sources, flags any disagreement between the specification and the code, and tells the product owner which questions are still open.</p></div>
 <h3>A continuous knowledge feedback loop</h3>
 <figure class="diagram" aria-label="Continuous knowledge feedback loop">
 <div class="node dark">Existing project knowledge</div><div class="arrow" aria-hidden="true">↓</div>
@@ -163,8 +167,8 @@
 </section>
 <section id="harness" aria-labelledby="harness-heading">
 <div class="eyebrow">05 / Agent enablement</div>
-<h2 id="harness-heading">Build the environment, not just the prompt.</h2>
-<p class="lead">Engineering effort should be directed toward the infrastructure that allows agents to perform useful, repeatable and verifiable work.</p>
+<h2 id="harness-heading">The engineering environment an agent needs</h2>
+<p class="lead">To make a change an engineer can verify, an agent needs access to the relevant code, a place to run it and feedback from the tests.</p>
 <div class="three">
 <div class="tile"><div class="num">WHAT</div><h4>Specification</h4><p>Clear intent, expected behavior, requirements and acceptance criteria.</p></div>
 <div class="tile"><div class="num">KNOW</div><h4>Context</h4><p>Relevant project knowledge, decisions, code and evidence.</p></div>
@@ -179,22 +183,23 @@
 <div class="lane"><div class="node"><b>Context interfaces</b>Search · APIs · MCP adapters</div><div class="node"><b>Execution tools</b>Code · CI · tests · documentation</div></div><div class="arrow" aria-hidden="true">↓</div>
 <div class="node"><b>Governance &amp; evaluation</b>Access control · logs · budgets · quality benchmarks</div>
 </figure>
+<p class="note">On one OpenAI team, a short AGENTS.md points engineers and agents to the relevant design documents. When a change breaks an architectural rule, a linter explains how to fix it. <a href="https://openai.com/index/harness-engineering/">OpenAI · Harness engineering</a></p>
 <h3>Concrete capabilities</h3>
 <div class="check"><h4>Requirements assistant</h4><p>Interviews product stakeholders, identifies ambiguities, creates specifications and derives manual test plans.</p></div>
 <div class="check"><h4>Technical analysis assistant</h4><p>Investigates existing code and dependencies; proposes a technical specification or an implementation plan.</p></div>
 <div class="check"><h4>Shared engineering skills</h4><p>Reusable, versioned instructions for context retrieval, development practices, review, testing and documentation maintenance.</p></div>
 <div class="check"><h4>Centralized verification agent</h4><p>Automatically reviews changes using relevant specifications, engineering standards and repository context.</p></div>
 <div class="check"><h4>Knowledge maintenance assistant</h4><p>Extracts useful project knowledge, proposes updates, detects contradictions and produces summaries.</p></div>
-<h3>Practices, not compulsory methodologies</h3>
-<p>Specification-driven development (SDD) is one useful way of connecting human-readable specifications with agent-assisted implementation. It is a technique within this framework, not its defining principle or a mandatory workflow for every task.</p>
+<h3>Choosing practices for a team</h3>
+<p>In specification-driven development (SDD), the team writes a specification that guides the agent during implementation. Teams can use this approach where the change warrants it.</p>
 <p>Agent skills, retrieval systems, MCP integrations, coding assistants and automated reviewers are implementation choices. Select and adapt them to the organization's infrastructure, policies and needs.</p>
 <details><summary>What a reusable skill should contain</summary><div><ul><li>Purpose, applicability and expected output.</li><li>Required sources and tools.</li><li>Steps, quality checks and handling of uncertainty.</li><li>Examples and known failure cases.</li><li>Version, owner and evaluation scenarios.</li></ul><p class="note">Keep enforceable policies in deterministic tooling when possible. A written instruction is not a substitute for an actual security, test or access-control check.</p></div></details>
 </section>
 <section id="quality" aria-labelledby="quality-heading">
 <div class="eyebrow">06 / Quality &amp; verification</div>
-<h2 id="quality-heading">Move judgment upstream. Verify continuously.</h2>
-<p class="lead">The highest-value human contribution often occurs before implementation, when the organization decides what to build and how it should behave.</p>
-<p>Reviewing a finished diff is valuable, but it is an inefficient way to discover that different participants understood the feature differently. Specifications allow product and technical decisions to be reviewed earlier, while implementation review checks whether those decisions were realized correctly.</p>
+<h2 id="quality-heading">Where review starts</h2>
+<p class="lead">Some of the most consequential review happens before anyone writes code, while the team is deciding how the feature should behave.</p>
+<p>Product and engineering review the specification while they can still change the design. Later, the reviewer reads the diff against those decisions.</p>
 <figure class="diagram"><div class="diagram-head"><b>Verification across the lifecycle</b><span>FIG. 05</span></div>
 <div class="stage"><div class="step">1</div><div><b>Product specification review</b><p>Are the behavior, business rules, acceptance criteria and user scenarios sufficiently clear?</p></div></div>
 <div class="stage"><div class="step">2</div><div><b>Manual test-plan generation</b><p>Can meaningful test scenarios be derived from the requirements? Missing expected outcomes reveal specification gaps.</p></div></div>
@@ -204,23 +209,24 @@
 </figure>
 <h3>Centralized AI code review</h3>
 <p>Integrate an AI reviewer with the Git platform, for example GitLab. It receives the current diff, relevant product and technical specifications, repository context, tests and engineering standards. It publishes concrete findings linked to affected code and explains the scenario, impact and evidence.</p>
-<p>A review must be tied to the exact revision. Tool failures, unavailable context and incomplete analysis should be reported as incomplete verification, not as a successful review with no findings.</p>
-<div class="case"><div class="eyebrow">Example review findings</div><p><b>Requirement mismatch:</b> AC-03 requires existing records to retain their value during migration, but the implementation resets the field.</p><p><b>Coverage gap:</b> conflicting document references are described in the product specification, but no corresponding test or behavior is present.</p></div>
+<p>The reviewer identifies the exact revision it checked. If a tool fails, context is missing or the analysis stops early, it marks the review incomplete and explains what it could not verify.</p>
+<div class="case"><h4>A review finding the team can act on</h4><p>The test checks that a reminder arrives at 3:50. It still passes if the calendar also sends the old reminder at 2:50. The AI reviewer flags the gap and asks for a test that records every notification for the meeting and checks that only the 3:50 reminder was delivered.</p><p class="note">Anthropic’s guide to evaluating agents describes how to check what actually happened in the system. <a href="https://www.anthropic.com/research/demystifying-evals-for-ai-agents">Anthropic · Demystifying evals for AI agents</a></p></div>
+<p class="note">Uber evaluates its automated reviewer using developer feedback and a separate set of changes with known defects. <a href="https://www.uber.com/us/en/blog/ureview/">Uber Engineering · uReview</a></p>
 <h3>Human review remains available</h3>
 <p>AI review should not be treated as proof of correctness. Keep manual review available and require appropriate expert involvement for high-risk changes, according to organization policy. Begin in advisory mode, measure findings and omissions, and reduce redundant manual review only where the evidence supports it.</p>
-<blockquote class="quote">Standardize the quality of the result, not the choice of who or what performs the work.</blockquote>
+<blockquote class="quote">The same acceptance criteria apply whether a developer writes the code by hand or uses an agent.</blockquote>
 </section>
 <section id="roadmap" aria-labelledby="roadmap-heading">
 <div class="eyebrow">07 / Adoption roadmap</div>
-<h2 id="roadmap-heading">Build incrementally. Deliver in parallel.</h2>
-<p class="lead">The target architecture is clear. Implementation must be adapted to the organization's existing workflows, infrastructure and constraints.</p>
-<p>The goal of initial assessment is not to rediscover where AI can be useful. It is to understand how to integrate the proposed capabilities into the particular organization without imposing unnecessary process or technology changes.</p>
+<h2 id="roadmap-heading">How teams phase adoption</h2>
+<p class="lead">The starting point depends on where a team encounters friction in its existing workflow.</p>
+<p>For a team that regularly discovers missing requirements in QA, the first pilot can focus on using an assistant to surface open questions during design review.</p>
 <div class="road">
-<div class="wave"><div class="eyebrow">Wave 01</div><h4>Establish the foundation</h4><p>Agree on core artifacts and test useful capabilities early.</p><div class="task"><b>SPEC</b>Common feature template</div><div class="task"><b>CTX</b>Repository &amp; documentation access</div><div class="task"><b>SKILL</b>Requirements and analysis skills</div><div class="task"><b>REV</b>Advisory reviewer pilot</div></div>
+<div class="wave"><div class="eyebrow">Wave 01</div><h4>Establish the foundation</h4><p>Agree on core artifacts and test useful capabilities early.</p><div class="task"><b>EVAL</b>Baseline and pilot success criteria</div><div class="task"><b>SPEC</b>Common feature template</div><div class="task"><b>CTX</b>Repository &amp; documentation access</div><div class="task"><b>SKILL</b>Requirements and analysis skills</div><div class="task"><b>REV</b>Advisory reviewer pilot</div></div>
 <div class="wave"><div class="eyebrow">Wave 02</div><h4>Connect the workflows</h4><p>Integrate capabilities around shared specifications and context.</p><div class="task"><b>SPEC</b>Context-aware product assistant</div><div class="task"><b>DEV</b>Technical specification workflow</div><div class="task"><b>QA</b>Early manual test plans</div><div class="task"><b>REV</b>Specification-aware review</div></div>
 <div class="wave"><div class="eyebrow">Wave 03</div><h4>Scale what works</h4><p>Improve coverage and reduce repeated human work.</p><div class="task"><b>KNOW</b>Knowledge feedback loop</div><div class="task"><b>KNOW</b>Team digests</div><div class="task"><b>EVAL</b>Regression benchmarks</div><div class="task"><b>SCALE</b>Additional products &amp; roles</div></div>
 </div>
-<p class="note">Waves represent dependencies and maturity, not fixed calendar deadlines. Several independent workstreams can start simultaneously.</p>
+<p class="note">Each team sets its own pace. Work can start in parallel wherever one pilot can run independently of another.</p>
 <h3>Implementation backlog</h3>
 <details open><summary>SPEC — Requirements &amp; specification process</summary><div>
 <div class="check"><h4>SPEC-01 · Define a common feature template</h4><p>Include intent, behavior, acceptance criteria, design references, questions and manual test plan.</p><p><b>Done when:</b> product, engineering and QA can use the template for real features without duplicating information.</p></div>
@@ -259,8 +265,8 @@
 </section>
 <section id="evaluation" aria-labelledby="evaluation-heading">
 <div class="eyebrow">08 / Evaluation &amp; improvement</div>
-<h2 id="evaluation-heading">Measure outcomes, not AI activity.</h2>
-<p class="lead">The success of AI adoption is measured by improvements in engineering and business outcomes, not the number of generated lines of code or agent interactions.</p>
+<h2 id="evaluation-heading">How teams judge a pilot</h2>
+<p class="lead">Generated lines of code and agent interactions tell a team how much it used a tool. To judge its value, the team tracks what changed in delivery, quality and cost.</p>
 <div class="metric"><b>Requirements quality</b>Completeness of feature descriptions, unresolved questions at development start, requirement changes discovered after implementation.</div>
 <div class="metric"><b>Delivery effectiveness</b>Lead time, rework, time spent coordinating decisions and total engineering effort per completed feature.</div>
 <div class="metric"><b>Knowledge accessibility</b>Time to answer project questions, source accuracy, freshness and success of cross-project onboarding.</div>
@@ -269,9 +275,9 @@
 <div class="metric"><b>Operational sustainability</b>AI costs, failure rates, access violations, maintenance burden and ability to switch execution methods.</div>
 <h3>Continuous improvement</h3>
 <p>Every recurring failure should lead to a system-level improvement: a missing business rule becomes a knowledge update; a repeated defect becomes a regression test; a weak agent workflow becomes a skill or harness improvement.</p>
-<p>Compare results against a baseline and representative tasks. Use human audits for important outcomes. Scale capabilities when their benefit is demonstrated, and retain a fallback route when automation is unreliable.</p>
-<div class="end"><div class="eyebrow">The target state</div><h2>Better processes.<br>Accessible knowledge.<br>Stronger engineering.</h2><p>An organization in which AI is an intentional, integrated capability — and humans retain ownership of decisions, quality and the way they work.</p></div>
-<p class="note">This white paper describes a proposed adoption framework informed by software engineering practice. Examples are illustrative; the framework does not claim measured results from a completed company-wide transformation.</p>
+<div class="case"><h4>When does the requirements pilot justify wider use?</h4><p>Before the pilot, the team samples comparable features and records how often an unresolved product question first surfaces after coding starts. It also records time spent preparing specifications and on rework. The team tracks the same measures during the pilot.</p><p>If late questions become less frequent and the time saved on rework outweighs the extra preparation, the team expands the pilot. If preparation takes longer and the same questions still reach QA, the team pauses the pilot and examines the missed cases with product and QA.</p></div>
+<div class="end"><div class="eyebrow">The target state</div><h2>Who owns the result?</h2><p>The team owns the result. Its engineers can trace a product decision, check the shipped behavior and choose where an assistant helps with the next change.</p></div>
+<p class="note">The calendar feature and the pilot are illustrative examples.</p>
 </section>
 </main>
 </div>
