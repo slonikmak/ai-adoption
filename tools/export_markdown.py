@@ -100,18 +100,28 @@ class MarkdownExporter(HTMLParser):
         return '```'.join(parts).strip()
 
 
-def main():
+def export(directory, intro):
     exporter = MarkdownExporter()
-    exporter.feed((ROOT / 'index.html').read_text(encoding='utf-8'))
-    intro = (
+    exporter.feed((directory / 'index.html').read_text(encoding='utf-8'))
+    (directory / 'content.md').write_text(intro + exporter.result() + '\n', encoding='utf-8')
+
+
+def main():
+    export(ROOT, (
         '# Engineering the AI-Ready Organization\n\n'
         '**Anton Mashkov · White paper v0.3 · 2026**\n\n'
         'AI adoption starts where a team loses time or has to redo work. '
         'The people who own that part of the process decide what AI can help with, which decisions stay in their hands, and what evidence justifies wider use.\n\n'
         '<!-- Generated from index.html. The HTML is canonical. -->\n\n'
-    )
-    (ROOT / 'content.md').write_text(intro + exporter.result() + '\n', encoding='utf-8')
-    print('Updated content.md')
+    ))
+    export(ROOT / 'ru', (
+        '# Как подготовить организацию к работе с ИИ\n\n'
+        '**Антон Машков · Аналитическая записка v0.3 · 2026**\n\n'
+        'Внедрять ИИ стоит там, где команда теряет время или вынуждена переделывать работу. '
+        'Те, кто отвечает за этот участок, решают, в чём им поможет ИИ, какие решения они примут сами '
+        'и по каким результатам можно будет расширить практику.\n\n'
+        '<!-- Источник текста — ru/index.html. -->\n\n'
+    ))
 
 
 if __name__ == '__main__':

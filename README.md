@@ -2,7 +2,11 @@
 
 **Anton Mashkov · White paper v0.3**
 
-A standalone English-language white paper on human-centered AI adoption across the software development lifecycle. Anton Mashkov presents his view of the AI adoption engineer’s role through an illustrative calendar feature and a bounded pilot.
+A standalone white paper on human-centered AI adoption across the software development lifecycle. Anton Mashkov presents his view of the AI adoption engineer’s role through an illustrative calendar feature and a bounded pilot.
+
+[English edition](https://slonikmak.github.io/ai-adoption/) · [Русская версия](https://slonikmak.github.io/ai-adoption/ru/)
+
+The Russian edition lives in `ru/` and shares the site assets. Each edition includes its own HTML, Markdown and downloadable PDF.
 
 ## Open locally
 

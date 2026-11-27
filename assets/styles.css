@@ -202,3 +202,7 @@ pre { font: 13px/1.8 ui-monospace, SFMono-Regular, Consolas, monospace; backgrou
   details:not([open]) > :not(summary) { display: block !important; }
   p { orphans: 3; widows: 3; }
 }
+
+.language-link { display: inline-block; margin: 14px 16px 0; color: #c5dcdc; font-size: 14px; }
+@media print { .language-link { display: none; } }
+@media print { section > .eyebrow { break-after: avoid; } }
